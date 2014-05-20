@@ -9,8 +9,27 @@
     tools:context="colley.chisholm.diploma.android_proximity_alert.MainActivity$PlaceholderFragment" >
 
     <TextView
+        android:id="@+id/txtlattext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:text="@string/lbl_waitingtext" />
+
+    <TextView
+        android:id="@+id/txtlongtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_waitingtext" />
+
+    <Button
+        android:id="@+id/btnsavecoords"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_savecoordstext" />
+
+    <Button
+        android:id="@+id/btnfindcoords"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_findcoordstext" />
 
 </RelativeLayout>
