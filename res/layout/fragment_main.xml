@@ -18,18 +18,21 @@
         android:id="@+id/txtlongtext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/txtlattext"
         android:text="@string/lbl_waitingtext" />
 
     <Button
         android:id="@+id/btnsavecoords"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/txtlongtext"
         android:text="@string/btn_savecoordstext" />
 
     <Button
         android:id="@+id/btnfindcoords"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/btnsavecoords"
         android:text="@string/btn_findcoordstext" />
 
 </RelativeLayout>

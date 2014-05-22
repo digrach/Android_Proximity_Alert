@@ -6,7 +6,7 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_alert">AlertActivity</string>
     <string name="lbl_waitingtext">waiting...</string>
-    <string name="btn_savecoordstext">Save coords</string>
+    <string name="btn_savecoordstext">Add proximity alert for this location</string>
     <string name="btn_findcoordstext">Find coords</string>
 
 </resources>

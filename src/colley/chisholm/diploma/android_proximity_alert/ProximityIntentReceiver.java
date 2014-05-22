@@ -8,6 +8,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.location.LocationManager;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.util.Log;
 
 public class ProximityIntentReceiver extends BroadcastReceiver {
@@ -16,6 +19,12 @@ public class ProximityIntentReceiver extends BroadcastReceiver {
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
+		
+		Uri sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+//	    Ringtone r = RingtoneManager.getRingtone(context, notification);
+//	    r.play();
+		
+		
 		String key = LocationManager.KEY_PROXIMITY_ENTERING;
 		Boolean entering = intent.getBooleanExtra(key, false);
 		if (entering) {
@@ -24,24 +33,22 @@ public class ProximityIntentReceiver extends BroadcastReceiver {
 			Log.d(getClass().getSimpleName(), "exiting");
 		}
 		
-		NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-		PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, null, 0);  
-////		Notification notification = createNotification();
-////		notification.setLatestEventInfo(context, contentTitle, contentText, contentIntent);
-////		notification.setLatestEventInfo(context,"Proximity Alert!", "You are near your point of interest.", pendingIntent);
-//		
-//		Notification noti = new Notification.Builder(context)
-//        .setContentTitle("Proximity Alert!")
-//        .setContentText("You are near your point of interest.")
-//        //.setSmallIcon(R.drawable.new_mail)
-//        //.setLargeIcon(aBitmap)
-//        .build();
+		
+		
+		
+//		double lat = Double.parseDouble(intent.getExtras().getString("lat"));
+//		double lng = Double.parseDouble(intent.getExtras().getString("long"));
+		
+		String s = "You have entered " + intent.getStringExtra("lat") + " " + intent.getStringExtra("long");
+
 		
 		Notification.Builder mBuilder =
 		        new Notification.Builder(context)
 		        .setSmallIcon(R.drawable.ic_launcher)
-		        .setContentTitle("My notification")
-		        .setContentText("Hello World!");
+		        .setContentTitle("PROXIMITY ALERT")
+		        .setContentText(s)
+		        .setAutoCancel(true)
+		        .setSound(sound);
 		// Creates an explicit intent for an Activity in your app
 		Intent resultIntent = new Intent(context, AlertActivity.class);
 
@@ -66,6 +73,7 @@ public class ProximityIntentReceiver extends BroadcastReceiver {
 		mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
 		
 		//notificationManager.notify(NOTIFICATION_ID, mBuilder);
+		
 		
 	}
 	
