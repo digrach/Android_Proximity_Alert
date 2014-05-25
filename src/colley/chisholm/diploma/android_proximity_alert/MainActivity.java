@@ -4,7 +4,6 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 import android.app.Activity;
-import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -25,7 +24,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.os.Build;
 
 public class MainActivity extends Activity {
 
@@ -69,26 +67,26 @@ public class MainActivity extends Activity {
 
 		static LocationManager lm;
 		static Activity activity;
-
 		private static final long MINIMUM_DISTANCECHANGE_FOR_UPDATE = 1; // in Meters
 		private static final long MINIMUM_TIME_BETWEEN_UPDATE = 1000; // in Milliseconds
-
 //		private static final String PROX_ALERT_INTENT = "colley.chisholm.diploma.android_proximity_alert.AlertActivity";
 		private static final String PROX_ALERT_INTENT = "colley.chisholm.diploma.android_proximity_alert";
 		private static final long POINT_RADIUS = 1000; // in Meters
 		private static final long PROX_ALERT_EXPIRATION = -1;
-
 		private static final String POINT_LATITUDE_KEY = "POINT_LATITUDE_KEY";
 		private static final String POINT_LONGITUDE_KEY = "POINT_LONGITUDE_KEY";
-
 		private static final NumberFormat nf = new DecimalFormat("##.########");
-
 		private static TextView txtLat;
 		private static TextView txtLong;
 		private static Button btnSaveCoords;
 		private static Button btnFindCoords;
-
-
+		
+		//public LocationClient mLocationClient;
+		
+		private void addingMock() {
+//			mLocationClient.connect();
+//			mLocationClient.setMockMode(true);
+		}
 
 		private void addProximityAlert(double latitude, double longitude) {
 			Log.d(getClass().getSimpleName(),"addProximityAlert");
@@ -177,6 +175,8 @@ public class MainActivity extends Activity {
 					populateCoordinatesFromLastKnownLocation();
 				}
 			});
+			
+			addingMock();
 
 			return rootView;
 		}
